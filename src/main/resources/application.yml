@@ -1,0 +1,21 @@
+server:
+  servlet:
+    context-path: /api/v1
+
+spring:
+  application:
+    name: simplejdbc
+  datasource:
+    url: jdbc:postgresql://localhost:5432/mydb
+    username: myuser
+    password: mypass
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      minimum-idle: 0
+      maximum-pool-size: 1
+      idle-timeout: 30000
+      max-lifetime: 180000
+      connection-timeout: 10000
+  sql:
+    init:
+      mode: always

@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  postgres-db:
+    image: postgres:18.1-alpine3.22
+    container_name: postgres-db
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypass
+      POSTGRES_DB: mydb
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    network_mode: host
+    restart: always
